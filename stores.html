@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fareway Stores</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: new google.maps.LatLng(42.306818, -93.640027),
+          mapTypeId: 'roadmap'
+        });
+
+        var iconBase = 'file:///Users/navaju01/stores/';
+        var icons = {
+          fare: {
+            icon: iconBase + 'pin.png'
+          },
+          geneseo: {
+            icon: iconBase + '059.png'
+          },
+          clinton: {
+            icon: iconBase + '025.png'
+          },
+          ben: {
+            icon: iconBase + '044.png'
+          },
+          moline: {
+            icon: iconBase + '988.png'
+          },
+	  davenport: {
+            icon: iconBase + '987.png'
+          },
+	  maquoketa: {
+            icon: iconBase + '639.png'
+          },
+	  dubuque: {
+            icon: iconBase + '114.png'
+          },
+	  peosta: {
+            icon: iconBase + '168.png'
+          },
+	  muscatine: {
+	        icon: iconBase + '998.png'
+	      },
+	  dyersville: {
+		    icon: iconBase + '008.png'
+		  },
+	  monticello: {
+			icon: iconBase + '840.png'
+		  },
+	  burlington: {
+			icon: iconBase + '009.png'
+		  },
+	  anamosa: {
+			icon: iconBase + '166.png'
+		  },
+	  manchester: {
+			icon: iconBase + '594.png'
+		  },
+	  iowaCity: {
+			icon: iconBase + '034.png'
+		  },
+	  waukon: {
+			icon: iconBase + '062.png'
+		  },
+	  marion: {
+			icon: iconBase + '949.png'
+		  },
+	  iowaCityW: {
+			icon: iconBase + '950.png'
+		  },
+	  northLiberty: {
+			icon: iconBase + '993.png'
+		  },
+	  cedarRapids: {
+			icon: iconBase + '151.png'
+		  },
+	  hiawatha: {
+			icon: iconBase + '055.png'
+		  },
+	  washington: {
+			icon: iconBase + '554.png'
+		  },
+	  cedarRapids1: {
+			icon: iconBase + '963.png'
+		  },
+	  decorah: {
+			icon: iconBase + '589.png'
+		  },
+	  independence: {
+			icon: iconBase + '479.png'
+		  },
+	  oelwein: {
+			icon: iconBase + '412.png'
+		  },
+	  vinton: {
+			icon: iconBase + '462.png'
+		  },
+	  cresco: {
+			icon: iconBase + '815.png'
+		  },
+	  evansdale: {
+			icon: iconBase + '067.png'
+		  },
+	  newHampton: {
+			icon: iconBase + '922.png'
+		  },
+	  waterloo: {
+			icon: iconBase + '951.png'
+		  },
+	  cedarFalls: {
+			icon: iconBase + '974.png'
+		  },
+	  waverly: {
+			icon: iconBase + '561.png'
+		  },
+	  ottumwa: {
+			icon: iconBase + '648.png'
+		  },
+	  toledo: {
+			icon: iconBase + '792.png'
+		  },
+	  stewartville: {
+			icon: iconBase + '089.png'
+		  },
+	  rochester: {
+			icon: iconBase + '134.png'
+		  },
+	  oskaloosa: {
+			icon: iconBase + '625.png'
+		  },
+	  charlesCity: {
+			icon: iconBase + '501.png'
+		  },
+	  grinnell: {
+			icon: iconBase + '737.png'
+		  },
+	  marshalltown: {
+			icon: iconBase + '467.png'
+		  },
+	  pella: {
+			icon: iconBase + '995.png'
+		  },
+	  centerville: {
+			icon: iconBase + '827.png'
+		  },
+	  newton: {
+			icon: iconBase + '848.png'
+		  },
+	  eldora: {
+			icon: iconBase + '882.png'
+		  },
+	  knoxville: {
+			icon: iconBase + '980.png'
+		  },
+	  hampton: {
+			icon: iconBase + '902.png'
+		  },
+	  masonCity: {
+			icon: iconBase + '491.png'
+		  },
+	  iowaFalls: {
+			icon: iconBase + '559.png'
+		  },
+	  owatonna: {
+			icon: iconBase + '139.png'
+		  },
+	  clearLake: {
+			icon: iconBase + '705.png'
+		  },
+	  faribault: {
+			icon: iconBase + '126.png'
+		  },
+	  nevada: {
+			icon: iconBase + '426.png'
+		  },
+	  altoona: {
+			icon: iconBase + '925.png'
+		  },
+	  pleasantHill: {
+			icon: iconBase + '138.png'
+		  },
+	  carlisle: {
+			icon: iconBase + '147.png'
+		  },
+	  desMoines: {
+			icon: iconBase + '975.png'
+		  },
+	  ankeny: {
+			icon: iconBase + '061.png'
+		  },
+	  huxley: {
+			icon: iconBase + '155.png'
+		  },
+	  belmond: {
+			icon: iconBase + '879.png'
+		  },
+	  amesS: {
+			icon: iconBase + '386.png'
+		  },
+	  ankeny1: {
+			icon: iconBase + '909.png'
+		  },
+	  indianola: {
+			icon: iconBase + '657.png'
+		  },
+	  desMoines1: {
+			icon: iconBase + '900.png'
+		  },
+	  amesNorth: {
+			icon: iconBase + '093.png'
+		  },
+	  norwalk: {
+			icon: iconBase + '077.png'
+		  },
+	  johnston: {
+			icon: iconBase + '167.png'
+		  },
+	  polkCity: {
+			icon: iconBase + '137.png'
+		  },
+	  westDesMoines: {
+			icon: iconBase + '153.png'
+		  },
+	  urbandale: {
+			icon: iconBase + '933.png'
+		  },
+	  clive: {
+			icon: iconBase + '106.png'
+		  },
+	  grimes: {
+			icon: iconBase + '983.png'
+		  },
+	  websterCity: {
+			icon: iconBase + '395.png'
+		  },
+	  osceola: {
+			icon: iconBase + '699.png'
+		  },
+	  boone: {
+			icon: iconBase + '384.png'
+		  },
+	  waukee: {
+			icon: iconBase + '989.png'
+		  },
+	  eagleGrove: {
+			icon: iconBase + '551.png'
+		  },
+	  adel: {
+			icon: iconBase + '124.png'
+		  },
+	  winterset: {
+			icon: iconBase + '683.png'
+		  },
+	  perry: {
+			icon: iconBase + '470.png'
+		  },
+	  fortDodge: {
+			icon: iconBase + '508.png'
+		  },
+	  humboldt: {
+			icon: iconBase + '703.png'
+		  },
+	  algona: {
+			icon: iconBase + '531.png'
+		  },
+	  jefferson: {
+			icon: iconBase + '888.png'
+		  },
+	  fairmont: {
+			icon: iconBase + '102.png'
+		  },
+	  greenfield: {
+			icon: iconBase + '941.png'
+		  },
+	  creston: {
+			icon: iconBase + '597.png'
+		  },
+	  emmetsburg: {
+			icon: iconBase + '849.png'
+		  },
+	  estherville: {
+			icon: iconBase + '407.png'
+		  },
+	  carroll: {
+			icon: iconBase + '409.png'
+		  },
+	  atlantic: {
+			icon: iconBase + '940.png'
+		  },
+	  spiritLake: {
+			icon: iconBase + '850.png'
+		  },
+	  spencer: {
+			icon: iconBase + '788.png'
+		  },
+	  stormLake: {
+			icon: iconBase + '461.png'
+		  },
+	  clarinda: {
+			icon: iconBase + '048.png'
+		  },
+	  redOak: {
+			icon: iconBase + '841.png'
+		  },
+	  harlan: {
+			icon: iconBase + '790.png'
+		  },
+	  denison: {
+			icon: iconBase + '015.png'
+		  },
+	  cherokee: {
+			icon: iconBase + '502.png'
+		  },
+	  shenandoah: {
+			icon: iconBase + '938.png'
+		  },
+	  worthington: {
+			icon: iconBase + '099.png'
+		  },
+	  sheldon: {
+			icon: iconBase + '021.png'
+		  },
+	  councilBluffs: {
+			icon: iconBase + '073.png'
+		  },
+	  orangeCity: {
+			icon: iconBase + '058.png'
+		  },
+	  nebraskaCity: {
+			icon: iconBase + '118.png'
+		  },
+	  papillion: {
+			icon: iconBase + '049.png'
+		  },
+	  omahaN: {
+			icon: iconBase + '132.png'
+		  },
+	  omahaMeat: {
+			icon: iconBase + '165.png'
+		  },
+	  leMars: {
+			icon: iconBase + '719.png'
+		  },
+	  siouxCenter: {
+			icon: iconBase + '912.png'
+		  },
+	  omahaW: {
+            icon: iconBase + '043.png'
+          },
+	  morningside: {
+            icon: iconBase + '829.png'
+          },
+	  sergentBluff: {
+            icon: iconBase + '014.png'
+          },
+	  siouxCityN: {
+            icon: iconBase + '019.png'
+          },
+	  siouxCity: {
+            icon: iconBase + '022.png'
+          },
+	  siouxFalls2: {
+            icon: iconBase + '164.png'
+          },
+	  siouxFalls: {
+            icon: iconBase + '136.png'
+          },
+        };
+
+        var features = [
+          {
+            position: new google.maps.LatLng(41.44809, -90.154285),
+            type: 'geneseo'
+          }, {
+            position: new google.maps.LatLng(41.860553, -90.211362),
+            type: 'clinton'
+          }, {
+            position: new google.maps.LatLng(41.557258, -90.48015),
+            type: 'ben'
+          }, {
+            position: new google.maps.LatLng(41.475231, -90.503126),
+            type: 'moline'
+          }, {
+            position: new google.maps.LatLng(41.573928, -90.598183),
+            type: 'davenport'
+          }, {
+            position: new google.maps.LatLng(42.0685, -90.680597),
+            type: 'maquoketa'
+          }, {
+            position: new google.maps.LatLng(42.539336, -90.69592),
+            type: 'dubuque'
+          }, {
+            position: new google.maps.LatLng(42.44493, -90.846541),
+            type: 'peosta'
+          }, {
+            position: new google.maps.LatLng(41.435379, -91.082689),
+            type: 'muscatine'
+          }, {
+            position: new google.maps.LatLng(42.474583, -91.111896),
+            type: 'dyersville'
+          }, {
+            position: new google.maps.LatLng(42.241721, -91.191385),
+            type: 'monticello'
+          }, {
+            position: new google.maps.LatLng(40.799218, -91.140015),
+            type: 'burlington'
+          }, {
+            position: new google.maps.LatLng(42.108566, -91.281156),
+            type: 'anamosa'
+          }, {
+            position: new google.maps.LatLng(42.482129, -91.457804),
+            type: 'manchester'
+          }, {
+            position: new google.maps.LatLng(41.629669, -91.481715),
+            type: 'iowaCity'
+          }, {
+            position: new google.maps.LatLng(43.256659, -91.487263),
+            type: 'waukon'
+          }, {
+            position: new google.maps.LatLng(42.036007, -91.577035),
+            type: 'marion'
+          }, {
+            position: new google.maps.LatLng(41.651411, -91.576218),
+            type: 'iowaCityW'
+          }, {
+            position: new google.maps.LatLng(41.740506, -91.6084),
+            type: 'northLiberty'
+          }, {
+            position: new google.maps.LatLng(42.016433, -91.634734),
+            type: 'cedarRapids'
+          }, {
+            position: new google.maps.LatLng(42.04651, -91.701331),
+            type: 'hiawatha'
+          }, {
+            position: new google.maps.LatLng(41.301412, -91.69305),
+            type: 'washington'
+          }, {
+            position: new google.maps.LatLng(41.964826, -91.727194),
+            type: 'cedarRapids1'
+          }, {
+            position: new google.maps.LatLng(43.30321, -91.785014),
+            type: 'decorah'
+          }, {
+            position: new google.maps.LatLng(42.455832, -91.888766),
+            type: 'independence'
+          }, {
+            position: new google.maps.LatLng(42.67548, -91.912),
+            type: 'oelwein'
+          }, {
+            position: new google.maps.LatLng(42.166168, -92.026194),
+            type: 'vinton'
+          }, {
+            position: new google.maps.LatLng(43.371999, -92.117529),
+            type: 'cresco'
+          }, {
+            position: new google.maps.LatLng(42.475626, -92.286697),
+            type: 'evansdale'
+          }, {
+            position: new google.maps.LatLng(43.057959, -92.312546),
+            type: 'newHampton'
+          }, {
+            position: new google.maps.LatLng(42.458533, -92.358176),
+            type: 'waterloo'
+          }, {
+            position: new google.maps.LatLng(42.539141, -92.475469),
+            type: 'cedarFalls'
+          }, {
+            position: new google.maps.LatLng(42.72665, -92.474091),
+            type: 'waverly'
+          }, {
+            position: new google.maps.LatLng(41.009478, -92.439007),
+            type: 'ottumwa'
+          }, {
+            position: new google.maps.LatLng(41.997213, -92.583527),
+            type: 'toledo'
+          }, {
+            position: new google.maps.LatLng(43.871587, -92.484373),
+            type: 'stewartville'
+          }, {
+            position: new google.maps.LatLng(44.067412, -92.503246),
+            type: 'rochester'
+          }, {
+            position: new google.maps.LatLng(41.293076, -92.648276),
+            type: 'oskaloosa'
+          }, {
+            position: new google.maps.LatLng(43.052245, -92.674449),
+            type: 'charlesCity'
+          }, {
+            position: new google.maps.LatLng(41.740761, -92.727364),
+            type: 'grinnell'
+          }, {
+            position: new google.maps.LatLng(42.0381, -92.914458),
+            type: 'marshalltown'
+          }, {
+            position: new google.maps.LatLng(41.411979, -92.94107),
+            type: 'pella'
+          }, {
+            position: new google.maps.LatLng(40.731273, -92.867907),
+            type: 'centerville'
+          }, {
+            position: new google.maps.LatLng(41.700158, -93.051024),
+            type: 'newton'
+          }, {
+            position: new google.maps.LatLng(42.361051, -93.101102),
+            type: 'eldora'
+          }, {
+            position: new google.maps.LatLng(41.329298, -93.109508),
+            type: 'knoxville'
+          }, {
+            position: new google.maps.LatLng(42.742236, -93.21166),
+            type: 'hampton'
+          }, {
+            position: new google.maps.LatLng(43.155915, -93.200355),
+            type: 'masonCity'
+          }, {
+            position: new google.maps.LatLng(42.522452, -93.263094),
+            type: 'iowaFalls'
+          }, {
+            position: new google.maps.LatLng(44.076819, -93.228533),
+            type: 'owatonna'
+          }, {
+            position: new google.maps.LatLng(43.142914, -93.400513),
+            type: 'clearLake'
+          }, {
+            position: new google.maps.LatLng(44.295468, -93.27243),
+            type: 'faribault'
+          }, {
+            position: new google.maps.LatLng(42.010364, -93.439901),
+            type: 'nevada'
+          }, {
+            position: new google.maps.LatLng(41.643487, -93.458712),
+            type: 'altoona'
+          }, {
+            position: new google.maps.LatLng(41.599203, -93.504717),
+            type: 'pleasantHill'
+          }, {
+            position: new google.maps.LatLng(41.498438, -93.499436),
+            type: 'carlisle'
+          }, {
+            position: new google.maps.LatLng(41.556481, -93.578439),
+            type: 'desMoines'
+          }, {
+            position: new google.maps.LatLng(41.757053, -93.599226),
+            type: 'ankeny'
+          }, {
+            position: new google.maps.LatLng(41.903933, -93.609854),
+            type: 'huxley'
+          }, {
+            position: new google.maps.LatLng(42.849675, -93.616782),
+            type: 'belmond'
+          }, {
+            position: new google.maps.LatLng(42.02762, -93.616508),
+            type: 'amesS'
+          }, {
+            position: new google.maps.LatLng(41.702104, -93.59978),
+            type: 'ankeny1'
+          }, {
+            position: new google.maps.LatLng(41.355641, -93.579105),
+            type: 'indianola'
+          }, {
+            position: new google.maps.LatLng(41.627682, -93.61931),
+            type: 'desMoines1'
+          }, {
+            position: new google.maps.LatLng(42.057075, -93.646621),
+            type: 'amesNorth'
+          }, {
+            position: new google.maps.LatLng(41.483906, -93.676188),
+            type: 'norwalk'
+          }, {
+            position: new google.maps.LatLng(41.670132, -93.696619),
+            type: 'johnston'
+          }, {
+            position: new google.maps.LatLng(41.763884, -93.718688),
+            type: 'polkCity'
+          }, {
+            position: new google.maps.LatLng(41.582697, -93.706933),
+            type: 'westDesMoines'
+          }, {
+            position: new google.maps.LatLng(41.643819, -93.734224),
+            type: 'urbandale'
+          }, {
+            position: new google.maps.LatLng(41.602736, -93.75691),
+            type: 'clive'
+          }, {
+            position: new google.maps.LatLng(41.686302, -93.779109),
+            type: 'grimes'
+          }, {
+            position: new google.maps.LatLng(42.469468, -93.82736),
+            type: 'websterCity'
+          }, {
+            position: new google.maps.LatLng(41.032624, -93.765064),
+            type: 'osceola'
+          }, {
+            position: new google.maps.LatLng(42.037358, -93.879322),
+            type: 'boone'
+          }, {
+            position: new google.maps.LatLng(41.613454, -93.861442),
+            type: 'waukee'
+          }, {
+            position: new google.maps.LatLng(42.665183, -93.903133),
+            type: 'eagleGrove'
+          }, {
+            position: new google.maps.LatLng(41.609966, -94.017954),
+            type: 'adel'
+          }, {
+            position: new google.maps.LatLng(41.344671, -94.006358),
+            type: 'winterset'
+          }, {
+            position: new google.maps.LatLng(41.837694, -94.102879),
+            type: 'perry'
+          }, {
+            position: new google.maps.LatLng(42.50502, -94.181981),
+            type: 'fortDodge'
+          }, {
+            position: new google.maps.LatLng(42.721574, -94.218396),
+            type: 'humboldt'
+          }, {
+            position: new google.maps.LatLng(43.0828, -94.214133),
+            type: 'algona'
+          }, {
+            position: new google.maps.LatLng(42.026127, -94.377631),
+            type: 'jefferson'
+          }, {
+            position: new google.maps.LatLng(41.057375, -94.361367),
+            type: 'creston'
+          }, {
+            position: new google.maps.LatLng(43.649017, -94.448268),
+            type: 'fairmont'
+          }, {
+            position: new google.maps.LatLng(41.303157, -94.462724),
+            type: 'greenfield'
+          }, {
+            position: new google.maps.LatLng(43.109212, -94.676377),
+            type: 'emmetsburg'
+          }, {
+            position: new google.maps.LatLng(43.402028, -94.830159),
+            type: 'estherville'
+          }, {
+            position: new google.maps.LatLng(42.065246, -94.851236),
+            type: 'carroll'
+          }, {
+            position: new google.maps.LatLng(41.408018, -95.014398),
+            type: 'atlantic'
+          }, {
+            position: new google.maps.LatLng(43.421654, -95.106283),
+            type: 'spiritLake'
+          }, {
+            position: new google.maps.LatLng(43.145448, -95.143355),
+            type: 'spencer'
+          }, {
+            position: new google.maps.LatLng(42.645862, -95.196922),
+            type: 'stormLake'
+          }, {
+            position: new google.maps.LatLng(40.723173, -95.040324),
+            type: 'clarinda'
+          }, {
+            position: new google.maps.LatLng(41.011483, -95.232741),
+            type: 'redOak'
+          }, {
+            position: new google.maps.LatLng(41.650176, -95.338729),
+            type: 'harlan'
+          }, {
+            position: new google.maps.LatLng(42.024301, -95.372021),
+            type: 'denison'
+          }, {
+            position: new google.maps.LatLng(42.754241, -95.551894),
+            type: 'cherokee'
+          }, {
+            position: new google.maps.LatLng(40.757677, -95.385098),
+            type: 'shenandoah'
+          }, {
+            position: new google.maps.LatLng(43.634826, -95.596094),
+            type: 'worthington'
+          }, {
+            position: new google.maps.LatLng(43.186036, -95.824977),
+            type: 'sheldon'
+          }, {
+            position: new google.maps.LatLng(41.27989, -95.819198),
+            type: 'councilBluffs'
+          }, {
+            position: new google.maps.LatLng(42.997504, -96.052427),
+            type: 'orangeCity'
+          }, {
+            position: new google.maps.LatLng(40.660834, -95.861006),
+            type: 'nebraskaCity'
+          }, {
+            position: new google.maps.LatLng(41.175339, -96.026855),
+            type: 'papillion'
+          }, {
+            position: new google.maps.LatLng(41.286793, -96.052696),
+            type: 'omahaN'
+          }, {
+            position: new google.maps.LatLng(41.235095, -96.051843),
+            type: 'omahaMeat'
+          }, {
+            position: new google.maps.LatLng(42.79372, -96.164298),
+            type: 'leMars'
+          }, {
+            position: new google.maps.LatLng(43.077639, -96.176978),
+            type: 'siouxCenter'
+          }, {
+            position: new google.maps.LatLng(41.190191, -96.18129),
+            type: 'omahaW'
+          }, {
+            position: new google.maps.LatLng(42.450376, -96.354099),
+            type: 'morningside'
+          }, {
+            position: new google.maps.LatLng(42.400401, -96.356262),
+            type: 'sergentBluff'
+          }, {
+            position: new google.maps.LatLng(42.540803, -96.37488),
+            type: 'siouxCityN'
+          }, {
+            position: new google.maps.LatLng(42.612367, -96.482318),
+            type: 'siouxCity'
+          }, {
+            position: new google.maps.LatLng(43.514285, -96.672183),
+            type: 'siouxFalls2'
+          }, {
+            position: new google.maps.LatLng(43.514846, -96.742722),
+            type: 'siouxFalls'
+          }
+        ];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPNkCQwSrtLJUVbDk19vZfPtbVXaST0K8&callback=initMap">
+    </script>
+  </body>
+</html>
